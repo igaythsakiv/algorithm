@@ -26,12 +26,18 @@ struct matrix* power(struct matrix *a,char n[],int k)
 {
 	int i=k-1;
 	struct matrix *y;
+	struct matrix *b;
+	b=(struct matrix*)malloc(sizeof(struct matrix));
 	y=(struct matrix*)malloc(sizeof(struct matrix));
 	y->a=1;y->b=0;y->c=0;y->d=1;
 	while(i>=0)
 	{
 		if(n[i]=='1')y=matrixmultiply(y,a);
 		a=matrixmultiply(a,a);
+		b=a;
+		b=matrixmultiply(b,b);
+		b=matrixmultiply(b,b);
+		a=matrixmultiply(a,b);
 		i=i-1;
 	}
 	return y;
@@ -44,26 +50,24 @@ void sby1(char *aa)
 	while(k>=0)
 	{if(carry==0)
 		break;
-	       	if(aa[k]-'0'-1==-1)
+	       	if(aa[k]-'0'-1<=-1)
 		{
-			aa[k]='1';carry=1;}
-	else{ aa[k]='0';carry=0;}
+			aa[k]=aa[k]-'0'-1;carry=1;}
 
+		else{ aa[k]='0';carry=0;}
 	}
 }
 
 int main()
 {
-	char aa[3000];
-	scanf("%s",aa);
+	char a[1000000];
+	scanf("%s",a);
 	scanf("%lld",&m);
-	int k=strlen(aa);
-	//printf("value of k %d\n",k);
-	struct matrix *a=(struct matrix*)malloc(sizeof(struct matrix));
-	a->a=1;a->b=1;a->c=1;a->d=0;
-	sby1(aa);
-	struct matrix *ca=power(a,aa,k);
+	sby1(a);
+	int k=strlen(a);
+	struct matrix *ca=power(a,m,k);
 	printf("%lld",ca->a);
 	return 0;
 }
+
 

@@ -1,0 +1,23 @@
+in dynamic data set problem we have to perform three operation that are basically add ,delete,search and for this we have the hashing technique which usually takes theta(n) time in worst case.in average case also it takes O(1) time.
+we have seen three  problems 
+	problem 1: given a text of length n and pattern of length m by using rolling hash it will take on average O(n+m) time .because O(m) time fro calculating the hash value of the pattern and then again checking the hash value get matche d to the text value or not at a particular interval in which it takes O(n) time.but in worst case it will take atmost O(nm) time 
+	problem 2:this problem can be generalised to search of k pattern which are to be matched in the text .To find out wheather the k pattern are present in the text or not if they are present then 
+	Approach 1:perform the problem algorithm for the k pattern it will usual	ly take in worst case O(knm) time which is very bad if n=10^6,m=10^4,k=1	0^4 .it will take more than a second to perfom this algorithm.
+	Approach 2:build a hash table which will be done in 10^8 operations whic	h wil usually take less than a second to perform this preprocesing and b	y finding all hash value we can compute it in O(km+N) time complexity.
+	PROBLEM 3:WE have a string of length n and we have to find the pattern w		hich has largest length and repeating k times in the string.
+	APPROACH:use the binary search algorithm for working with this algorithm
+
+
+
+
+                     BALANCED BINARY SEARCH TREE (AVL TREE AND RED BLACK TREE)
+for performing dynamic data set operation we need something better than hash table and with the help of balance binary search tere we can perform it .bbst is suitable for performing range queries while hashing is not able to perform for this kind of stuff.for example we have a database named employee we have to ask a query like how many people have salary between 20k to 40k then in this case hashing will not work while bbst will work correctly.
+		Static data set
+suppose we have a collection of data and we are given that we have to perform k searches in that collection then how will we perform this searches in that collection.
+if we use binary search for which first we have to sort the data and then perform binary search which will usually take O(nlogn +klogn) time
+in case of linear search it will take (kn) time 
+now which method is to perform and when if K<logn the perform linear search and
+if k>=logn the preprocess the data and then perform binary search.
+			REAL TIME APPLICATION OF BINARY SEARCH
+IN DICTIONARY  binary search is used for searching, but in real binary search is not used but bias binary search is used for searching as in case of 10^9 datapoint we use binary search then it will search for data in atleast 30 comparison while in the case of bias binary search it will usually take atmost 8 comparisons to search.
+	question .is if the value of k is unknown then how will i proceed to work wheather i will go for linear search or sorting after binary search it wil depend on dind out.
